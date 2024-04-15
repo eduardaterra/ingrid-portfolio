@@ -19,36 +19,31 @@ const Preview = ({ data }: PreviewDocument) => {
           VER TODOS
         </Link>
       </div>
-      <div className={styled.slide}>
-        <Carousel loop navigation slidesPerView={1}>
-          {data.preview.map((item, key) => (
-            <SwiperSlide className={styled.slide} key={key}>
-              <Image
-                className={styled.image}
-                fill
-                src={asImageSrc(item.image) as string}
-                alt={item.title as string}
-              />
-              <div className={styled.overlay}>
-                <div className={styled.overlayContentWrapper}>
-                  <div className={styled.overlayContent}>
-                    <span className={styled.overlayTitle}>{item.title}</span>
-                    <span className={styled.overlayDescription}>
-                      {item.description}
-                    </span>
-                  </div>
-
-                  <Link
-                    href={item.link as string}
-                    className={styled.overlayCTA}
-                  >
-                    VEJA MAIS
-                  </Link>
+      <div className={styled.grid}>
+        {data.preview.map((item, key) => (
+          <div className={styled.slide} key={`${item.title} ${key}`}>
+            <Image
+              className={styled.image}
+              fill
+              src={asImageSrc(item.image) as string}
+              alt={item.title as string}
+            />
+            <div className={styled.overlay}>
+              <div className={styled.overlayContentWrapper}>
+                <div className={styled.overlayContent}>
+                  <span className={styled.overlayTitle}>{item.title}</span>
+                  <span className={styled.overlayDescription}>
+                    {item.description}
+                  </span>
                 </div>
+
+                <Link href={item.link as string} className={styled.overlayCTA}>
+                  VEJA MAIS
+                </Link>
               </div>
-            </SwiperSlide>
-          ))}
-        </Carousel>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

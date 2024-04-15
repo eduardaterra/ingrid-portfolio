@@ -2,6 +2,10 @@
   width: 100%;
   min-height: 84dvh;
   background-color: var(--yellow);
+  display: inline-flex;
+}
+
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,20 +62,21 @@
 
 .overlay {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-end;
   transition: all 0.3s ease-in;
   position: absolute;
+  padding: 2rem;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #00000090;
+  background: linear-gradient(#00000010, #000000);
 }
 
 .overlayTitle {
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: #fff;
   text-align: center;
 }

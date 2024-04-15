@@ -10,7 +10,7 @@
 .title {
   cursor: pointer;
   text-decoration: none;
-  color: var(--caramel);
+
   font-size: 0.95rem;
   > b {
     color: var(--brown);
@@ -18,5 +18,22 @@
   @media screen and (min-width: 1024px) {
     font-size: 1.5rem;
   }
+  &[data-pink] {
+    color: var(--pink);
+  }
+  &[data-brown] {
+    color: var(--brown);
+  }
+  &[data-yellow] {
+    color: var(--yellow);
+  }
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  @media screen and (min-width: 1024px) {
+    font-size: 1rem;
+  }
+  color: var(--caramel);
 }
 

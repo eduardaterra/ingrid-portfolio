@@ -7,8 +7,8 @@
   gap: 1.5rem;
   padding-bottom: 2rem;
   @media screen and (min-width: 1024px) {
-    padding-bottom: 0;
-    height: 79dvh;
+    padding: 0 2rem;
+    min-height: 79dvh;
     align-items: center;
     justify-content: center;
     flex-direction: row;
@@ -52,15 +52,13 @@
 }
 
 .image {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+  position: relative !important;
 
   img {
     display: block;
     position: relative !important;
     height: auto !important;
+    width: initial !important;
     object-fit: cover;
   }
 
@@ -71,11 +69,19 @@
 
 .slide {
   position: relative;
-  width: 100vw;
-  height: 75vw;
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: flex;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 100%;
+  gap: 2rem;
   @media screen and (min-width: 1024px) {
-    width: 750px;
-    height: 563px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -116,17 +122,11 @@
 .overlayTitle {
   color: #fff;
   font-size: 1.5rem;
-  @media screen and (min-width: 1024px) {
-    font-size: 2rem;
-  }
 }
 
 .overlayDescription {
   color: #fff;
   font-size: 0.75rem;
-  @media screen and (min-width: 1024px) {
-    font-size: 1rem;
-  }
 }
 
 .overlayCTA {

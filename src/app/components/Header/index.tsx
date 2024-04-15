@@ -5,10 +5,23 @@ const Header = () => {
   return (
     <div className={styled.header}>
       <Link href={"/"} style={{ all: "unset" }}>
-        <p className={styled.title}>
-          <b>ingrid martins | </b>
-          branding & storytelling
-        </p>
+        <span className={styled.title}>
+          <b>
+            <span data-brown className={styled.title}>
+              ingrid
+            </span>
+            <span data-yellow className={styled.title}>
+              .
+            </span>
+            <span data-pink className={styled.title}>
+              m{" "}
+            </span>
+            |
+          </b>{" "}
+        </span>
+        <span className={styled.subtitle}>
+          redação, branding & storytelling
+        </span>
       </Link>
     </div>
   );
