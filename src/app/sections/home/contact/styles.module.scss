@@ -1,0 +1,103 @@
+.container {
+  width: 100%;
+  background-color: var(--green);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
+
+.contactItemContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding: 2rem;
+  width: 100%;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #000;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: unset;
+    max-width: 40vw;
+    border-bottom: none;
+    padding: 0 4rem;
+    &:not(:last-child) {
+      border-bottom: none;
+      border-right: 1px solid #000;
+    }
+  }
+}
+
+.contactItemTitle {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.socialMediaWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.socialMediaLink {
+  all: unset;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.input {
+  min-width: 25vw;
+}
+
+.podcastContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.podcastImageWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+
+  img {
+    display: block;
+    position: relative !important;
+    height: auto !important;
+    object-fit: cover;
+  }
+
+  track {
+    display: none;
+  }
+}
+
+.podcastLinksWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.podcastLink {
+  all: unset;
+  cursor: pointer;
+  text-decoration: underline;
+  text-transform: capitalize;
+  font-size: 0.75rem;
+}
+

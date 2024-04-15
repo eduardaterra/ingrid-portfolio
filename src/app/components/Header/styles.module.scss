@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  height: 7dvh;
+  background-color: #fff;
+}
+
+.title {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--caramel);
+  font-size: 0.95rem;
+  > b {
+    color: var(--brown);
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 1.5rem;
+  }
+}
+

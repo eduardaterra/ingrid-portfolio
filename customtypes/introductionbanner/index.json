@@ -1,0 +1,36 @@
+{
+  "format": "custom",
+  "id": "introductionbanner",
+  "label": "IntroductionBanner",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "image",
+          "constraint": {
+            "width": 436,
+            "height": 722
+          },
+          "thumbnails": []
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

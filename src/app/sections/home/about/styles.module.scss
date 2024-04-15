@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 79dvh;
+  @media screen and (min-width: 1024px) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  background-color: var(--blue);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+  padding-bottom: 4rem;
+  @media screen and (min-width: 1024px) {
+    padding-bottom: 0;
+    width: 50%;
+    padding-left: 65px;
+  }
+
+  img {
+    display: block;
+    position: relative !important;
+    height: auto !important;
+    object-fit: cover;
+    width: 90% !important;
+  }
+
+  track {
+    display: none;
+  }
+}
+
+.textContainer {
+  position: absolute;
+  right: 0;
+  bottom: 1.5rem;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  padding: 1rem 1.5rem;
+  @media screen and (min-width: 1024px) {
+    position: inherit;
+    padding: 2rem 2.5rem;
+  }
+}
+
+.textWrapper {
+  border-left: 2px solid #000;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem;
+  gap: 1rem;
+
+  @media screen and (min-width: 1024px) {
+    padding: 2rem 2.5rem;
+    gap: 1.5rem;
+  }
+}
+
+.textTitle {
+  font-size: 1.5rem;
+  @media screen and (min-width: 1024px) {
+    font-size: 40px;
+  }
+}
+
+.textDescription {
+  font-size: 0.5rem;
+  @media screen and (min-width: 1024px) {
+    font-size: 20px;
+  }
+}
+

@@ -1,0 +1,26 @@
+:root {
+  --yellow: #ffeaa2;
+  --pink: #ffd6fb;
+  --blue: #c6eaff;
+  --purple: #b9bcff;
+  --green: #e0ffc8;
+  --caramel: #d08e2a;
+  --brown: #5c3508;
+  --beige: #f1ece5;
+  --gray: #303030;
+  --light-gray: #929292;
+  --orange: #e4954b;
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+

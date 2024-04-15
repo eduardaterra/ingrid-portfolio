@@ -1,0 +1,56 @@
+{
+  "format": "custom",
+  "id": "preview",
+  "label": "Preview",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "title",
+          "placeholder": ""
+        }
+      },
+      "preview": {
+        "type": "Group",
+        "config": {
+          "label": "preview",
+          "repeat": true,
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "title": {
+              "type": "Text",
+              "config": {
+                "label": "title",
+                "placeholder": ""
+              }
+            },
+            "description": {
+              "type": "Text",
+              "config": {
+                "label": "description",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Text",
+              "config": {
+                "label": "link",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

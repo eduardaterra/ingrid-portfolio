@@ -1,0 +1,27 @@
+{
+  "format": "custom",
+  "id": "suggestions",
+  "label": "Suggestions",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "suggestionsgroup": {
+        "type": "Group",
+        "config": {
+          "label": "suggestionsGroup",
+          "repeat": true,
+          "fields": {
+            "text": {
+              "type": "Text",
+              "config": {
+                "label": "text",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
