@@ -3,6 +3,8 @@ import { asImageSrc, asText } from "@prismicio/client";
 
 import styled from "./styles.module.scss";
 import Image from "next/image";
+import { SliceZone } from "@prismicio/react";
+import { components } from "@/slices";
 
 async function getContent(id: string) {
   const client = createClient();
@@ -27,6 +29,9 @@ const JobPage = async ({ params: { id } }: { params: { id: string } }) => {
           </div>
           <p className={styled.text}>{asText(jobData.data.description)}</p>
         </div>
+      </div>
+      <div className={styled.sliceZone}>
+        <SliceZone slices={jobData.data.slices} components={components} />
       </div>
     </div>
   );

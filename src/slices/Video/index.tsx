@@ -1,5 +1,7 @@
-import { Content } from "@prismicio/client";
+import { Content, asLink } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+
+import styled from "./styles.module.scss";
 
 /**
  * Props for `Video`.
@@ -11,13 +13,16 @@ export type VideoProps = SliceComponentProps<Content.VideoSlice>;
  */
 const Video = ({ slice }: VideoProps): JSX.Element => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for video (variation: {slice.variation}) Slices
-    </section>
+    <div className={styled.container}>
+      <video
+        playsInline
+        controls
+        src={asLink(slice.primary.video) as string}
+        className={styled.video}
+      />
+    </div>
   );
 };
 
 export default Video;
+

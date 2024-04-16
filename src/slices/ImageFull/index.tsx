@@ -1,5 +1,7 @@
-import { Content } from "@prismicio/client";
+import { Content, asImageSrc } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import Image from "next/image";
+import styled from "./styles.module.scss";
 
 /**
  * Props for `ImageFull`.
@@ -11,13 +13,15 @@ export type ImageFullProps = SliceComponentProps<Content.ImageFullSlice>;
  */
 const ImageFull = ({ slice }: ImageFullProps): JSX.Element => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for image_full (variation: {slice.variation}) Slices
-    </section>
+    <div className={styled.imageWrapper}>
+      <Image
+        fill
+        src={asImageSrc(slice.primary.image) as string}
+        alt={slice.primary.image.alt as string}
+      />
+    </div>
   );
 };
 
 export default ImageFull;
+

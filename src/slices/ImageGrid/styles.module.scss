@@ -1,0 +1,28 @@
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  @media screen and (min-width: 1024px) {
+    grid-gap: 2rem;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  img {
+    display: block;
+    position: relative !important;
+    height: auto !important;
+    object-fit: cover;
+  }
+
+  track {
+    display: none;
+  }
+}
+
