@@ -45,6 +45,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "paragraph": {
+              "type": "SharedSlice"
+            },
             "image_full": {
               "type": "SharedSlice"
             },

@@ -1,0 +1,13 @@
+.paragraph {
+  width: 100%;
+  text-align: center;
+  line-height: 1.75rem;
+  font-size: 1rem;
+  padding: 1rem 0;
+  max-width: 80vw;
+  @media screen and (min-width: 1024px) {
+    font-size: 1.25rem;
+    max-width: 50vw;
+  }
+}
+

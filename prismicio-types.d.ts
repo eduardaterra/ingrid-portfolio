@@ -119,7 +119,11 @@ export type IntroductionbannerDocument<Lang extends string = string> =
     Lang
   >;
 
-type JobDocumentDataSlicesSlice = ImageFullSlice | VideoSlice | ImageGridSlice;
+type JobDocumentDataSlicesSlice =
+  | ParagraphSlice
+  | ImageFullSlice
+  | VideoSlice
+  | ImageGridSlice;
 
 /**
  * Content for Job documents
@@ -427,6 +431,51 @@ export type ImageGridSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Paragraph → Primary*
+ */
+export interface ParagraphSliceDefaultPrimary {
+  /**
+   * text field in *Paragraph → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: paragraph.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Paragraph Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ParagraphSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ParagraphSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Paragraph*
+ */
+type ParagraphSliceVariation = ParagraphSliceDefault;
+
+/**
+ * Paragraph Shared Slice
+ *
+ * - **API ID**: `paragraph`
+ * - **Description**: Paragraph
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ParagraphSlice = prismic.SharedSlice<
+  "paragraph",
+  ParagraphSliceVariation
+>;
+
+/**
  * Primary content in *Video → Primary*
  */
 export interface VideoSliceDefaultPrimary {
@@ -501,6 +550,10 @@ declare module "@prismicio/client" {
       ImageGridSliceDefaultPrimary,
       ImageGridSliceVariation,
       ImageGridSliceDefault,
+      ParagraphSlice,
+      ParagraphSliceDefaultPrimary,
+      ParagraphSliceVariation,
+      ParagraphSliceDefault,
       VideoSlice,
       VideoSliceDefaultPrimary,
       VideoSliceVariation,
