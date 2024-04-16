@@ -4,7 +4,15 @@ import styled from "./styles.module.scss";
 const Header = () => {
   return (
     <div className={styled.header}>
-      <Link href={"/"} style={{ all: "unset" }}>
+      <Link
+        href={"/"}
+        style={{
+          all: "unset",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "1rem",
+        }}
+      >
         <span className={styled.title}>
           <b>
             <span data-brown className={styled.title}>
@@ -17,7 +25,7 @@ const Header = () => {
               m{" "}
             </span>
             |
-          </b>{" "}
+          </b>
         </span>
         <span className={styled.subtitle}>
           redação, branding & storytelling
