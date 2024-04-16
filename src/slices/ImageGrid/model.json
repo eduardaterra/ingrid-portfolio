@@ -1,0 +1,41 @@
+{
+  "id": "image_grid",
+  "type": "SharedSlice",
+  "name": "ImageGrid",
+  "description": "ImageGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "firstimage": {
+          "type": "Image",
+          "config": {
+            "label": "FirstImage",
+            "constraint": {
+              "width": 400,
+              "height": 300
+            },
+            "thumbnails": []
+          }
+        },
+        "secondimage": {
+          "type": "Image",
+          "config": {
+            "label": "SecondImage",
+            "constraint": {
+              "width": 400,
+              "height": 300
+            },
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

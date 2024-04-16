@@ -119,20 +119,7 @@ export type IntroductionbannerDocument<Lang extends string = string> =
     Lang
   >;
 
-/**
- * Item in *Job → images*
- */
-export interface JobDocumentDataImagesItem {
-  /**
-   * image field in *Job → images*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: job.images[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
+type JobDocumentDataSlicesSlice = ImageFullSlice | VideoSlice | ImageGridSlice;
 
 /**
  * Content for Job documents
@@ -161,15 +148,26 @@ interface JobDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * images field in *Job*
+   * MainImage field in *Job*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: job.images[]
+   * - **API ID Path**: job.mainimage
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  images: prismic.GroupField<Simplify<JobDocumentDataImagesItem>>;
+  mainimage: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Job*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<JobDocumentDataSlicesSlice>;
 }
 
 /**
@@ -328,6 +326,148 @@ export type AllDocumentTypes =
   | PreviewDocument
   | SuggestionsDocument;
 
+/**
+ * Primary content in *ImageFull → Primary*
+ */
+export interface ImageFullSliceDefaultPrimary {
+  /**
+   * Image field in *ImageFull → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_full.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ImageFull Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageFullSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageFullSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageFull*
+ */
+type ImageFullSliceVariation = ImageFullSliceDefault;
+
+/**
+ * ImageFull Shared Slice
+ *
+ * - **API ID**: `image_full`
+ * - **Description**: ImageFull
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageFullSlice = prismic.SharedSlice<
+  "image_full",
+  ImageFullSliceVariation
+>;
+
+/**
+ * Primary content in *ImageGrid → Primary*
+ */
+export interface ImageGridSliceDefaultPrimary {
+  /**
+   * FirstImage field in *ImageGrid → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_grid.primary.firstimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  firstimage: prismic.ImageField<never>;
+
+  /**
+   * SecondImage field in *ImageGrid → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_grid.primary.secondimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  secondimage: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ImageGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageGridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageGridSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageGrid*
+ */
+type ImageGridSliceVariation = ImageGridSliceDefault;
+
+/**
+ * ImageGrid Shared Slice
+ *
+ * - **API ID**: `image_grid`
+ * - **Description**: ImageGrid
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageGridSlice = prismic.SharedSlice<
+  "image_grid",
+  ImageGridSliceVariation
+>;
+
+/**
+ * Primary content in *Video → Primary*
+ */
+export interface VideoSliceDefaultPrimary {
+  /**
+   * video field in *Video → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video: prismic.LinkToMediaField;
+}
+
+/**
+ * Default variation for Video Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Video*
+ */
+type VideoSliceVariation = VideoSliceDefault;
+
+/**
+ * Video Shared Slice
+ *
+ * - **API ID**: `video`
+ * - **Description**: Video
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoSlice = prismic.SharedSlice<"video", VideoSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -345,7 +485,7 @@ declare module "@prismicio/client" {
       IntroductionbannerDocumentData,
       JobDocument,
       JobDocumentData,
-      JobDocumentDataImagesItem,
+      JobDocumentDataSlicesSlice,
       PreviewDocument,
       PreviewDocumentData,
       PreviewDocumentDataPreviewItem,
@@ -353,6 +493,18 @@ declare module "@prismicio/client" {
       SuggestionsDocumentData,
       SuggestionsDocumentDataSuggestionsgroupItem,
       AllDocumentTypes,
+      ImageFullSlice,
+      ImageFullSliceDefaultPrimary,
+      ImageFullSliceVariation,
+      ImageFullSliceDefault,
+      ImageGridSlice,
+      ImageGridSliceDefaultPrimary,
+      ImageGridSliceVariation,
+      ImageGridSliceDefault,
+      VideoSlice,
+      VideoSliceDefaultPrimary,
+      VideoSliceVariation,
+      VideoSliceDefault,
     };
   }
 }

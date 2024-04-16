@@ -29,19 +29,30 @@
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "images": {
-        "type": "Group",
+      "mainimage": {
+        "type": "Image",
         "config": {
-          "label": "images",
-          "repeat": true,
-          "fields": {
-            "image": {
-              "type": "Image",
-              "config": {
-                "label": "image",
-                "constraint": {},
-                "thumbnails": []
-              }
+          "label": "MainImage",
+          "constraint": {
+            "width": 400,
+            "height": 300
+          },
+          "thumbnails": []
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "image_full": {
+              "type": "SharedSlice"
+            },
+            "video": {
+              "type": "SharedSlice"
+            },
+            "image_grid": {
+              "type": "SharedSlice"
             }
           }
         }

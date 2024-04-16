@@ -1,7 +1,8 @@
 import { createClient } from "@/prismicio";
+import { asImageSrc, asText } from "@prismicio/client";
+
 import styled from "./styles.module.scss";
-import { asText } from "@prismicio/client";
-import JobsCarousel from "./carousel";
+import Image from "next/image";
 
 async function getContent(id: string) {
   const client = createClient();
@@ -17,8 +18,13 @@ const JobPage = async ({ params: { id } }: { params: { id: string } }) => {
       <div className={styled.wrapper}>
         <p className={styled.title}>{jobData.data.title}</p>
         <div className={styled.contentWrapper}>
-          <JobsCarousel {...jobData} />
-
+          <div className={styled.imageWrapper}>
+            <Image
+              fill
+              src={asImageSrc(jobData.data.mainimage) as string}
+              alt={jobData.data.mainimage.alt as string}
+            />
+          </div>
           <p className={styled.text}>{asText(jobData.data.description)}</p>
         </div>
       </div>

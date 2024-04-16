@@ -22,7 +22,7 @@ const Grid = (jobs: JobDocument[]) => {
                 <div className={styled.imageWrapper}>
                   <Image
                     fill
-                    src={asImageSrc(item.data.images[0]?.image) as string}
+                    src={asImageSrc(item.data.mainimage) as string}
                     alt={item.data.title as string}
                   />
                   <div className={styled.overlay}>

@@ -1,14 +1,9 @@
-"use client";
-import { SwiperSlide } from "swiper/react";
-import "swiper/css";
-
 import Link from "next/link";
 import { asImageSrc } from "@prismicio/client";
 import Image from "next/image";
 
 import { PreviewDocument } from "../../../../../prismicio-types";
 import styled from "./styles.module.scss";
-import Carousel from "@/app/components/Carousel";
 
 const Preview = ({ data }: PreviewDocument) => {
   return (
