@@ -5,6 +5,7 @@ import styled from "./styles.module.scss";
 import Image from "next/image";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
+import Contact from "@/app/sections/home/contact";
 
 async function getContent(id: string) {
   const client = createClient();
@@ -33,6 +34,7 @@ const JobPage = async ({ params: { id } }: { params: { id: string } }) => {
       <div className={styled.sliceZone}>
         <SliceZone slices={jobData.data.slices} components={components} />
       </div>
+      <Contact />
     </div>
   );
 };
