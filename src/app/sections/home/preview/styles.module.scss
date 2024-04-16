@@ -7,8 +7,7 @@
   gap: 1.5rem;
   padding-bottom: 2rem;
   @media screen and (min-width: 1024px) {
-    padding: 0 2rem;
-    min-height: 79dvh;
+    padding: 2rem 2rem;
     align-items: center;
     justify-content: center;
     flex-direction: row;
@@ -73,6 +72,10 @@
   aspect-ratio: 4/3;
   display: flex;
   overflow: hidden;
+
+  @media screen and (min-width: 1024px) {
+    max-width: 50vw;
+  }
 }
 
 .grid {
